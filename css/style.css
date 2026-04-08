@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI';
+    background-color: #f4f6f9;
+}
+
+.container {
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin: 30px;
+    color: #333;
+}
+
+/* Role selector */
+.role-selector {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.role-selector label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.role-selector select {
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+/* Dashboard */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #fff;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card[data-module="students"] {
+    background: #4F8EF7;
+}
+
+.card[data-module="courses"] {
+    background: #8E6FF7;
+}
+
+.card[data-module="employees"] {
+    background: #2DBE9D;
+}
+
+.card[data-module="instructors"] {
+    background: #F4A261;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Disabled / No Access */
+.card.disabled {
+    filter: blur(1px);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.card.disabled::after {
+    content: "No Access";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #da190b;
+    color: white;
+    font-size: 0.75rem;
+    padding: 3px 7px;
+    border-radius: 5px;
+}
+
+.card h2 {
+    margin: 0 0 10px;
+    font-size: 1.3rem;
+}
+
+.card p {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+/* Responsive  */
+@media (max-width: 500px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Table Controls */
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table-controls label {
+    font-size: 17px;
+}
+
+.table-controls #searchInput,
+.table-controls #rowsPerPage {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 5px;
+    padding: 10px;
+}
+
+.table-controls #searchInput {
+    width: 600px;
+}
+
+.table-controls button {
+    padding: 10px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.2s ease;
+}
+
+.table-controls button:hover {
+    background-color: #45a049;
+}
+
+/* Table Container */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #ccc;
+    color: white;
+    text-transform: capitalize;
+}
+
+table thead th {
+    padding: 12px 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.2s ease;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+table tbody td {
+    padding: 15px;
+}
+
+.editBtn,
+.deleteBtn {
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.2s ease;
+}
+
+.editBtn {
+    background-color: #2196F3;
+}
+
+.editBtn:hover {
+    background-color: #0b7dda;
+}
+
+.deleteBtn {
+    background-color: #f44336;
+}
+
+.deleteBtn:hover {
+    background-color: #da190b;
+}
+
+/* Pagination Wrapper */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#paginationInfo {
+    font-size: 14px;
+    color: #555;
+}
+
+#paginationControls {
+    display: flex;
+    gap: 8px;
+}
+
+/* Buttons */
+#paginationControls button {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+#paginationControls button:hover {
+    background-color: #45a049;
+    transform: translateY(-1px);
+}
+
+/* Modal Form */
+#editModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+#dynamicForm {
+    padding: 20px;
+}
+
+#editModal div {
+    margin-bottom: 12px;
+}
+
+#editModal label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+#editModal input,
+#editModal select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.form-actions button {
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-actions .saveBtn {
+    background-color: #4CAF50;
+}
+
+.form-actions .saveBtn:hover {
+    background-color: #45a049;
+}
+
+#editModal .cancelBtn {
+    background-color: #f44336;
+}
+
+#editModal .cancelBtn:hover {
+    background-color: #da190b;
+}

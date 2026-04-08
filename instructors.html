@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructors</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Instructors</h1>
+        <div class="table-controls">
+            <label>
+                <select id="rowsPerPage">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                entries per page
+            </label>
+
+            <label>
+                Search:
+                <input type="text" id="searchInput" placeholder="Search...">
+            </label>
+
+            <button id="addInstructorBtn">Add New Instructor</button>
+        </div>
+
+        <div id="tableContainer"></div>
+
+        <div class="pagination">
+            <div id="paginationInfo"></div>
+            <div id="paginationControls"></div>
+        </div>
+
+        <div id="editModal" style="display:none;">
+            <form id="dynamicForm"></form>
+        </div>
+    </div>
+
+    <script type="module" src="./js/instructorsMain.js"></script>
+</body>
+
+</html>

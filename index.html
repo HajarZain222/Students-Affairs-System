@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>Students Affairs System DashBoard 🎓</h1>
+
+    <div class="role-selector">
+      <label>Select Role :</label>
+      <select id="roleSelect">
+        <option value="admin">Admin</option>
+        <option value="employee">Employee</option>
+        <option value="instructor">Instructor</option>
+        <option value="student">Student</option>
+      </select>
+    </div>
+
+    <div class="dashboard">
+
+      <div class="card" data-module="students" data-page="students.html">
+        <h2>Students</h2>
+        <p>Manage All Students</p>
+      </div>
+
+      <div class="card" data-module="courses" data-page="courses.html">
+        <h2>Courses</h2>
+        <p>Manage All Courses</p>
+      </div>
+
+      <div class="card" data-module="employees" data-page="employees.html">
+        <h2>Employees</h2>
+        <p>Manage All Employees</p>
+      </div>
+
+      <div class="card" data-module="instructors" data-page="instructors.html">
+        <h2>Instructors</h2>
+        <p>Manage All Instructors</p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>
