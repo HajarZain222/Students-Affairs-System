@@ -2,7 +2,7 @@
 class ApiService {
   // Constructor sets base URL based on resource name
   constructor(resource) {
-    this.baseUrl = `http://localhost:3000/${resource}`;
+    this.baseUrl = `https://students-affairs-system-production.up.railway.app/${resource}`;
   }
 
   // Fetch all records
