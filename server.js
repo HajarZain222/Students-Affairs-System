@@ -5,9 +5,11 @@ const server = jsonServer.create();
 const router = jsonServer.router(path.join(__dirname, "data", "db.json"));
 const middlewares = jsonServer.defaults();
 
+// Serve static files from public folder
+server.use(jsonServer.defaults({ static: path.join(__dirname, "public") }));
+
 const PORT = process.env.PORT || 8080;
 
-server.use(middlewares);
 server.use(router);
 
 server.listen(PORT, () => {
